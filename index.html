@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    table {
+        table-layout: fixed;
+        width: 25%;
+        border-collapse: collapse;
+        border: 3px solid purple;
+    }
+
+    tr {
+        text-align: center;
+    }
+
+    th,
+    td {
+        padding: 5px;
+        border: 1px solid purple;
+    }
+</style>
+
+<script>
+    // 2.1
+    const m = Number(prompt("Enter m:"))
+    const c = Number(prompt("Enter c:"))
+    const t = Number(prompt("Enter t:"))
+    const b = Number(prompt("Enter b:"))
+
+    const f = Math.cbrt(m * Math.tan(t) + Math.abs(c * Math.sin(t)))
+    const z = m * Math.cos(b * t * Math.sin(t)) + c
+
+    alert(f)
+    alert(z)
+
+    // 2.2
+
+    const n = 2
+    const el = Number(prompt("Enter elements:"))
+
+    if (el > 50) {
+        alert("Number of elements must not exceed 50")
+    }
+
+    let a = []
+    let p = [n]
+
+    for (let i = 0; i < el; i++) {
+        p = [...p, (p[i] * 67 + 11) % 128 ]
+        a = [...a, p[i] - 64]
+    }
+
+    document.write("<table>")
+    document.write("<tr>");
+    document.write("<td>Element Index</td>");
+    document.write("<td>Element</td>");
+    document.write("</tr>");
+
+    for (let i = 0; i < a.length; i++) {
+        document.write("<tr>");
+        document.write("<th>" + i + "</th>");
+        document.write("<th>" + a[i] + "</th>");
+        document.write("</tr>");
+    }
+    document.write("</table>")
+
+    let result = 0
+    a.forEach(element => {
+        if (element % n === 0) {
+            result += element
+        }
+    })
+
+    document.write("<h1> Result: " + result + "</h1>")
+</script>
+
+</body>
+</html>
